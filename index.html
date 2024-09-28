@@ -1,12 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Site</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Looping - fullPage.js</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="fullPage looping demo." />
+	<meta name="keywords"  content="fullpage,jquery,looping,loop,loopTop,loopBottom,demo" />
+	<meta name="Resource-type" content="Document" />
+
+
+	<link rel="stylesheet" type="text/css" href="assets/fullpage.css" />
+	<link rel="stylesheet" type="text/css" href="assets/examples.css" />
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]--> 
+
+    <link id="prefetch" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+   
 </head>
 <body>
-    <h1>Welcome to My GitHub Pages Site</h1>
-    <p>This is a simple GitHub Pages site.</p>
+
+
+<ul id="menu">
+	<li data-menuanchor="firstPage" class="active"><a href="#home">Home</a></li>
+	<li data-menuanchor="secondPage"><a href="#jsonformatter">JSON Formatter</a></li>
+	<li data-menuanchor="3rdPage"><a href="#comming-soon">Comming soon</a></li>
+</ul>
+
+<div id="fullpage">
+	<div class="section" name="home" style="background-image: linear-gradient(128deg, #ff9a3f, #ff4b40);">
+		<h1>Alifa Hub</h1>
+		<p>It is a rich and easy-to-use toolbox!</p>
+	</div>
+	<div class="section"  name="jsonformatter" style="background-image: linear-gradient(128deg, #fc40ff, #543fff);">
+		<div class="intro">
+			<h1>JSON Formatter!</h1>
+			<p>Formatting and beautifying JSON strings locally to generate JSON Schema.</p>
+            <img src="assets/main.png" style="width: 55%; margin-top: 10px;" />
+		</div>
+	</div>
+	<div class="section" name="comming-soon" style="background-image: linear-gradient(128deg, #40afff, #3f61ff);">
+		<div class="intro">
+			<h1>More features</h1>
+			<p>Comming soon!</p>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="assets/fullpage.js"></script>
+<script type="text/javascript" src="assets/examples.js"></script>
+<script type="text/javascript">
+    var myFullpage = new fullpage('#fullpage', {
+        //sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE'],
+        anchors: ['home', 'jsonformatter', 'comming-soon'],
+        menu: '#menu',
+        loopTop: true,
+        loopBottom: true
+    });
+</script>
+
 </body>
 </html>
