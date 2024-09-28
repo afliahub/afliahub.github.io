@@ -21,6 +21,46 @@
 
     <link id="prefetch" rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		#myVideo{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		top:0;
+		width: 100%;
+		height: 100%;
+		background-size: 100% 100%;
+ 		background-color: black; /* in case the video doesn't fit the whole page*/
+  		background-image: /* our video */;
+  		background-position: center center;
+  		background-size: contain;
+   		object-fit: cover; /*cover video background */
+   		z-index:3;
+	}
+
+	/* Layer with position absolute in order to have it over the video
+	* --------------------------------------- */
+	#section0 .layer{
+		position: absolute;
+		z-index: 4;
+		width: 100%;
+		left: 0;
+		top: 43%;
+
+		/*
+		* Preventing flicker on some browsers
+		* See http://stackoverflow.com/a/36671466/1081396  or issue #183
+		*/
+		-webkit-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+
+	/*solves problem with overflowing video in Mac with Chrome */
+	#section0{
+		overflow: hidden;
+	}
+	</style>
 </head>
 <body>
 
@@ -32,16 +72,23 @@
 </ul>
 
 <div id="fullpage">
-	<div class="section" name="home" style="background-image: linear-gradient(128deg, #ff9a3f, #ff4b40);">
-		<h1>Alifa Hub</h1>
-		<p>It is a rich and easy-to-use toolbox!</p>
-		<div class="row justify-content-center">
-            <div class="col-auto">
-                <a href="https://github.com/afliahub" class="btn btn-secondary" target="_blank">
-                    View on GitHub
-                </a>
-            </div>
-        </div>
+	<div class="section" name="home" id="section0" style="background-image: linear-gradient(128deg, #ff9a3f, #ff4b40);">
+		<video id="myVideo" loop muted data-autoplay playsinline>
+			<source src="assets/flowers.mp4" type="video/mp4">
+			<source src="assets/flowers.webm" type="video/webm">
+		</video>
+		<div class="layer">
+			<h1>Alifa Hub</h1>
+			<p>It is a rich and easy-to-use toolbox!</p>
+			<div class="row justify-content-center">
+				<div class="col-auto">
+					<a href="https://github.com/afliahub" class="btn btn-success" target="_blank">
+						View on GitHub
+					</a>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 	<div class="section"  name="jsonformatter" style="background-image: linear-gradient(128deg, #fc40ff, #543fff);">
 		<div class="intro">
@@ -67,7 +114,8 @@
         anchors: ['home', 'jsonformatter', 'comming-soon'],
         menu: '#menu',
         loopTop: true,
-        loopBottom: true
+        loopBottom: true,
+		verticalCentered: true,
     });
 </script>
 
